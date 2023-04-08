@@ -88,7 +88,7 @@ const select = document.querySelector("#js-select");
 
 select.addEventListener("change", (e) => {
   const selectedValue = e.target.value;
-  const selectedProperty = valueMap[selectedValue];
+  const selectedProperty = valueMap[`依${selectedValue}排序`];
   if (selectedProperty) {
     data.sort((a, b) => b[selectedProperty] - a[selectedProperty]);
     searchData();
@@ -111,7 +111,7 @@ sortAdvanced.addEventListener("click", (e) => {
   }
 });
 
-// 優化建議：
+// 優化部分：
 // ✅ 使用搜尋功能後，buttonGroup 按鈕的 acitve class 可以移除
 // ✅ 排序功能可以調整成根據當前資料做排序，例如搜尋"西瓜"之後，可以針對西瓜的資料做排序
 // ✅ JS 第 47 - 49 行這段可以直接代入 type 篩選就好，不需寫 if，例如：data.filter((item) => item.種類代碼 === type )
