@@ -106,6 +106,8 @@ sortAdvanced.addEventListener("click", (e) => {
       ? data.sort((a, b) => b[sortPrice] - a[sortPrice])
       : data.sort((a, b) => a[sortPrice] - b[sortPrice]);
     renderData(data);
+    // 連動搜尋資料    
+    input.value.trim() !== "" ? searchData() : null;
     // 連動排序資料 
     select.value = valueMap[`依${sortPrice}排序`];
   }
